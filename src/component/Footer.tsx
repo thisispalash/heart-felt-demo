@@ -9,8 +9,8 @@ import { HStack, Spacer } from '@chakra-ui/react';
 
 /* application imports */
 
-// import TrialLink from '@/component/atom/button/TrialLink';
-// import TheoryLink from '@/component/atom/button/TheoryLink';
+import TrialLink from '@/component/atom/link/TrialLink';
+import TheoryLink from '@/component/atom/link/TheoryLink';
 
 // import Wallet from '@/component/atom/button/Wallet';
 
@@ -24,10 +24,11 @@ export default function Footer({ ...props }: FooterProps) {
     <HStack
       spacing={4}
       align='center'
+      fontSize='lg'
     >
       <Spacer />
-      {/* <TrialLink /> */}
-      {/* <TheoryLink /> */}
+      <TrialLink />
+      <TheoryLink />
       <Spacer />
     </HStack>
   )
@@ -37,6 +38,7 @@ export default function Footer({ ...props }: FooterProps) {
       p={4}
       w='full' 
       bottom={0}
+      position='absolute'
     >
       {/* <Wallet /> */}
       <Spacer />
