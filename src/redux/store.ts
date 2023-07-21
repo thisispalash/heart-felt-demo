@@ -1,7 +1,7 @@
 import { AnyAction, ThunkAction, ThunkDispatch, configureStore } from '@reduxjs/toolkit';
 
-import web3Reducer from './slices/web3Slice';
-import appReducer from './slices/appSlice';
+import web3Reducer from './slices/web3';
+import appReducer from './slices/app';
 
 import { useDispatch, useSelector } from 'react-redux';
 // import { createWrapper } from 'next-redux-wrapper';
