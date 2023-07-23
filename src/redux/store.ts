@@ -1,10 +1,9 @@
 import { AnyAction, ThunkAction, ThunkDispatch, configureStore } from '@reduxjs/toolkit';
 
-import web3Reducer from './slices/web3';
-import appReducer from './slices/app';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { useDispatch, useSelector } from 'react-redux';
-// import { createWrapper } from 'next-redux-wrapper';
+import web3Reducer from './features/web3';
+import appReducer from './features/app';
 
 
 export const store = configureStore({
@@ -27,12 +26,10 @@ export const store = configureStore({
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;
 
-// // Use throughout your app instead of plain `useDispatch` and `useSelector`
-// export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppDispatch = useDispatch<ThunkDispatch<RootState, unknown, AnyAction>>;
 
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, AnyAction>
-export const useAppDispatch = useDispatch<ThunkDispatch<RootState, unknown, AnyAction>>;
-// export const wrappedStore = createWrapper<typeof store>(store);

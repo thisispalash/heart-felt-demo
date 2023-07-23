@@ -14,11 +14,19 @@ const appSlice = createSlice({
         case 'user': state.title = 'Dashboard'; break;
         default: state.title = '';
       }
+    },
+    setToast(state, action: PayloadAction<number>) {
+      console.log(Date.now(), 'setToast', action.payload);
+      state.toast = action.payload;
+    },
+    clearToast(state) {
+      state.toast = undefined;
     }
   },
 });
 
 export const {
   setPage,
+  setToast, clearToast,
 } = appSlice.actions;
 export default appSlice.reducer;
