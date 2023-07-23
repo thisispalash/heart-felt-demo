@@ -1,35 +1,14 @@
-import { Link, useToast, UseToastOptions } from '@chakra-ui/react';
-
-interface Toast_Opts {
-  title: string;
-  description: string;
-  status: UseToastOptions['status'];
-  duration: number;
-  isClosable: boolean;
-};
+import { Link } from '@chakra-ui/react';
+import { useAppDispatch } from '@/redux/store';
   
 export default function TrialLink({ ...props }) {
 
-  const toast = useToast();
-
-  const toast_opts: Toast_Opts = {
-    title: 'Coming Soon',
-    description: 'This feature is not yet available.',
-    status: 'info',
-    duration: 7000,
-    isClosable: true,
-  }
+  const dispatch = useAppDispatch();
 
   const linkOut = () => {
-    toast(toast_opts);
+    dispatch({ type: 'app/setToast', payload: 204 });
+    // window.open('/trial');
   }
 
-  return (
-    <Link
-      // href='/trial'
-      onClick={linkOut}
-    >
-      Trial
-    </Link>
-  );
+  return <Link onClick={linkOut}>Trial</Link>;
 }

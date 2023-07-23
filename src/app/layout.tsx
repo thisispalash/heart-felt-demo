@@ -7,12 +7,11 @@ import Footer from '@/component/Footer';
 import { CSSReset, ChakraProvider } from '@chakra-ui/react';
 import { theme } from '@/theme';
 
+import { Providers } from '@/redux/Providers';
+import Notification from '@/component/atom/alerts/toast';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en">
       <head>
@@ -20,11 +19,14 @@ export default function RootLayout({
       </head>
       <body>
         <main>
-          <ChakraProvider theme={theme}>
-            <CSSReset />
-            {children}
-            <Footer />
-          </ChakraProvider>
+          <Providers>
+            <ChakraProvider theme={theme}>
+              <CSSReset />
+              {children}
+              <Footer />
+              <Notification />
+            </ChakraProvider>
+          </Providers>
         </main>
         {/* Scripts */}
       </body>

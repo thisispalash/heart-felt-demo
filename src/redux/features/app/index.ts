@@ -16,7 +16,6 @@ const appSlice = createSlice({
       }
     },
     setToast(state, action: PayloadAction<number>) {
-      console.log(Date.now(), 'setToast', action.payload);
       state.toast = action.payload;
     },
     clearToast(state) {
