@@ -11,7 +11,7 @@ import { HStack, Spacer } from '@chakra-ui/react';
 
 import { useAppSelector } from '@/redux/hooks';
 
-import HomeLink from '@/component/atom/link/HomeLink';
+import GoHome from '@/component/atom/button/GoHome';
 import TrialLink from '@/component/atom/link/TrialLink';
 import TheoryLink from '@/component/atom/link/TheoryLink';
 
@@ -53,7 +53,7 @@ export default function Footer({ ...props }: FooterProps) {
         jsx = <>
           {/* <Wallet /> */}
           <Spacer />
-          <HomeLink />
+          <GoHome />
         </>;
       break;
     }
