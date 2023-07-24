@@ -15,7 +15,7 @@ import CountProvider from '@/context/CountContext';
 import BigBrand from '@/component/atom/display/BigBrand';
 import WelcomeUser from '@/component/atom/display/WelcomeUser';
 
-import SyncNow from '@/component/atom/button/SyncNow';
+import FeelNow from '@/component/atom/button/FeelNow';
 import Shuffle from '@/component/atom/button/Shuffle';
 import EnterSite from '@/component/atom/button/EnterSite';
 
@@ -43,14 +43,14 @@ const UserPage = <>
     <Spacer />
   </HStack>
   <HStack spacing={3} w='full'>
-    <SyncNow />
+    <FeelNow />
     <Shuffle />
     <Spacer />
   </HStack>
   <Spacer />
 </>;
 
-const SyncPage = <>
+const FeelPage = <>
   <Spacer />
   <HStack spacing={6} w='full'>
     <SyncProvider>
@@ -70,7 +70,7 @@ export default function Page() {
   const renderPage = () => {
     switch(page) {
       case 'user': return UserPage;
-      case 'sync': return SyncPage;
+      case 'feel': return FeelPage;
       default: return LandingPage;
     }
   }

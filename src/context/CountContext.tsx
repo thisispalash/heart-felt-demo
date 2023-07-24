@@ -14,4 +14,4 @@ export default function CountProvider({ children }: { children: React.ReactNode 
   );
 }
 
-export const useSync = () => useContext(CountContext);
+export const useCount = () => useContext(CountContext);

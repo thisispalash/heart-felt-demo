@@ -49,7 +49,7 @@ export default function Footer({ ...props }: FooterProps) {
           {LinkStack}
         </>;
       break;
-      case 'sync':
+      case 'feel':
         jsx = <>
           {/* <Wallet /> */}
           <Spacer />

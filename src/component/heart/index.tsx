@@ -22,7 +22,7 @@ export default function Heart({ ...props }: HeartProps) {
           right: 0,
           top: 0
         }
-      case 'sync':
+      case 'feel':
         return {
           display: 'none'
         }

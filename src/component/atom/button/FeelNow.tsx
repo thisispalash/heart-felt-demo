@@ -2,19 +2,19 @@ import { Button } from '@chakra-ui/react';
 import { useAppDispatch } from '@/redux/hooks';
 
 
-export default function SyncNow({ ...props }) {
+export default function FeelNow({ ...props }) {
 
   const dispatch = useAppDispatch();
 
-  const syncNow = () => {
-    dispatch({ type: 'app/setPage', payload: 'sync' });
+  const feelNow = () => {
+    dispatch({ type: 'app/setPage', payload: 'feel' });
   }
 
   return (
     <Button
       size='lg'
       variant='outline'
-      onClick={syncNow}
+      onClick={feelNow}
       colorScheme='schemes.green'
     >
       Feel Now
