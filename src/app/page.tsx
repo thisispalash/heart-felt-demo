@@ -21,6 +21,9 @@ import EnterSite from '@/component/atom/button/EnterSite';
 
 import ConnectWallet from '@/component/atom/link/ConnectWallet';
 
+import SyncBeat from '@/component/molecule/SyncBeat';
+import CountBeat from '@/component/molecule/CountBeat';
+
 const LandingPage = <>
   <BigBrand />
   <Spacer />
@@ -51,10 +54,10 @@ const SyncPage = <>
   <Spacer />
   <HStack spacing={6} w='full'>
     <SyncProvider>
-      {/* <SyncBeat /> */}
+      <SyncBeat />
     </SyncProvider>
     <CountProvider>
-      {/* <CountBeat /> */}
+      <CountBeat />
     </CountProvider>
   </HStack>
   <Spacer />
