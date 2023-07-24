@@ -22,6 +22,10 @@ export default function Heart({ ...props }: HeartProps) {
           right: 0,
           top: 0
         }
+      case 'sync':
+        return {
+          display: 'none'
+        }
       default: 
         return {
           ...config,

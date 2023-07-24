@@ -41,6 +41,15 @@ const UserPage = <>
   <Spacer />
 </>;
 
+const SyncPage = <>
+  <Spacer />
+  <HStack spacing={6} w='full'>
+    {/* <SyncBeat /> */}
+    {/* <CountBeat /> */}
+  </HStack>
+  <Spacer />
+</>;
+
 export default function Page() {
 
   const { page } = useAppSelector((state: RootState) => state.app);
@@ -48,7 +57,7 @@ export default function Page() {
   const renderPage = () => {
     switch(page) {
       case 'user': return UserPage;
-      // case 'sync': return SyncPage;
+      case 'sync': return SyncPage;
       default: return LandingPage;
     }
   }
