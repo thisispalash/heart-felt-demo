@@ -10,8 +10,9 @@ const appSlice = createSlice({
     setPage(state, action: PayloadAction<string>) {
       state.page = action.payload;
       switch (action.payload) {
-        case 'home': state.title = 'Home'; break;
-        case 'user': state.title = 'Dashboard'; break;
+        case 'welcome': state.title = 'Heart Felt Productions Inc. (HFP)'; break;
+        case 'home': state.title = 'Home | HFP'; break;
+        case 'user': state.title = 'Dashboard | HFP'; break;
         default: state.title = '';
       }
     },
