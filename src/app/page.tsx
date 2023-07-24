@@ -10,6 +10,7 @@ import { HStack, Spacer, Text, VStack } from '@chakra-ui/react';
 
 import BigBrand from '@/component/atom/display/BigBrand';
 import EnterSite from '@/component/atom/button/EnterSite';
+import ConnectWallet from '@/component/atom/link/ConnectWallet';
 
 export default function Home() {
 
@@ -31,7 +32,7 @@ export default function Home() {
       <EnterSite />
       <HStack spacing={1}>
         <Text fontSize='sm'>or</Text>
-        {/* <ConnectWallet /> */}
+        <ConnectWallet />
       </HStack>
       <Spacer />
       {/* <BeatingHeart /> */}
