@@ -26,8 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <VStack
                 h='100vh' 
                 w='100vw'
-                pl={12} 
-                spacing={4}
+                pl={24} 
+                spacing={8}
               >
                 {children}
                 {/* <BeatingHeart /> */}

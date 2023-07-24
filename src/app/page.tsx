@@ -12,6 +12,7 @@ import EnterSite from '@/component/atom/button/EnterSite';
 import ConnectWallet from '@/component/atom/link/ConnectWallet';
 import { RootState } from '@/redux/store';
 import WelcomeUser from '@/component/atom/display/WelcomeUser';
+import SyncNow from '@/component/atom/button/SyncNow';
 
 const LandingPage = <>
   <BigBrand />
@@ -32,7 +33,7 @@ const UserPage = <>
     <Spacer />
   </HStack>
   <HStack spacing={6} w='full'>
-    {/* <SyncNow /> */}
+    <SyncNow />
     {/* <Shuffle /> */}
     <Spacer />
   </HStack>
