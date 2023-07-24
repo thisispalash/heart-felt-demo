@@ -1,8 +1,14 @@
 'use client'
 
+/** package imports */
+
 import { useEffect } from 'react';
 import { useAppDispatch } from '@/redux/hooks';
 import { HStack, Spacer, Text, VStack } from '@chakra-ui/react';
+
+/** application imports */
+
+import BigBrand from '@/component/atom/display/BigBrand';
 
 export default function Home() {
 
@@ -19,7 +25,7 @@ export default function Home() {
       px={12} 
       spacing={4}
     >
-      {/* <BigBrand /> */}
+      <BigBrand />
       <Spacer />
       {/* <EnterSite /> */}
       <HStack spacing={1}>
