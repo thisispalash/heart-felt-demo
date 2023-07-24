@@ -1,6 +1,6 @@
 'use client'
 
-// import './globals.css'
+import './globals.css'
 
 import { CSSReset, ChakraProvider, VStack } from '@chakra-ui/react';
 
@@ -10,6 +10,7 @@ import { Providers } from '@/redux/Providers';
 import Footer from '@/component/html/Footer';
 import MetaTags from '@/component/html/Metadata';
 import Notification from '@/component/atom/alerts/toast';
+import Heart from '@/component/heart';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Footer />
                 <Notification />
               </VStack>
-              {/* <BeatingHeart /> */}
+              <Heart />
             </ChakraProvider>
           </Providers>
         </main>
