@@ -1,22 +1,21 @@
 import { ethers } from 'ethers';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-
-import { setWallet, setDisplay, setIsGenerated } from '..';
 import { AppThunk } from '@/redux/store';
 
-export const setupListeners = createAsyncThunk(
-  'web3/wallet/setup-listeners',
-  async (dispatch: any) => {
-    dispatch(setIsGenerated(false));
-  }
-);
+import { setWallet, setDisplay, setIsGenerated } from '..';
 
-export const getWallet = createAsyncThunk(
-  'web3/wallet/get',
-  async (dispatch: any) => {
-    dispatch(setIsGenerated(false));
-  }
-);
+export const connectWallet =
+  (): AppThunk =>
+    async (dispatch: any) => {
+      dispatch(setIsGenerated(false));
+      // TODO
+    };
+
+export const setupListeners =
+  (): AppThunk =>
+    async (dispatch: any) => {
+      dispatch(setIsGenerated(false));
+      // TODO
+    };
 
 export const generateWallet =
   (): AppThunk =>
