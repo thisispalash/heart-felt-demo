@@ -7,8 +7,8 @@ import { CSSReset, ChakraProvider } from '@chakra-ui/react';
 import { theme } from '@/theme';
 import { Providers } from '@/redux/Providers';
 
-import Footer from '@/component/Footer';
-import MetaTags from '@/component/head/Metadata';
+import Footer from '@/component/html/Footer';
+import MetaTags from '@/component/html/Metadata';
 import Notification from '@/component/atom/alerts/toast';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
