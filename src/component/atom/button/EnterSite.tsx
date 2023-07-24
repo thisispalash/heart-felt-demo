@@ -11,7 +11,7 @@ export default function EnterSite({ ...props }) {
     dispatch({ type: 'app/setToast', payload: 77001 });
     dispatch(generateWallet());
     setTimeout(() => { dispatch({ type: 'app/setToast', payload: 77003 }) }, 1200);
-    setTimeout(() => { dispatch({ type: 'app/setPage', payload: 'user' }) }, 4200);
+    setTimeout(() => { dispatch({ type: 'app/setPage', payload: 'user' }) }, 2400);
   }
 
   return (

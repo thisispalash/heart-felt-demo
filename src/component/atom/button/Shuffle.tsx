@@ -8,7 +8,8 @@ export default function Shuffle({ ...props }) {
   const dispatch = useAppDispatch();
 
   const shuffle = () => {
-    dispatch({ type: 'app/setPage', payload: 'shuffle' });
+    dispatch({ type: 'app/setToast', payload: 204 });
+    // dispatch({ type: 'app/setPage', payload: 'shuffle' });
   }
 
   return (

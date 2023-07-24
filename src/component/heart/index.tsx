@@ -47,7 +47,7 @@ export default function Heart({ ...props }: HeartProps) {
         as={FaHeart}
         color='red'
         boxSize='10vh'
-        animation={`beat infinite 2s ease-in-out`}
+        animation={`beat infinite 3s ease-in-out`}
       />
     </Box>
   )
