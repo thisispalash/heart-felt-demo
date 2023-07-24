@@ -3,7 +3,7 @@
 /** package imports */
 
 import { useAppSelector } from '@/redux/hooks';
-import { HStack, Spacer, Text, VStack } from '@chakra-ui/react';
+import { Divider, HStack, Spacer, Text, VStack } from '@chakra-ui/react';
 
 /** application imports */
 
@@ -52,14 +52,15 @@ const UserPage = <>
 
 const FeelPage = <>
   <Spacer />
-  <HStack spacing={6} w='full'>
+  <VStack spacing={6} w='full'>
     <SyncProvider>
       <SyncBeat />
     </SyncProvider>
+    <Divider w='7vw' />
     <CountProvider>
       <CountBeat />
     </CountProvider>
-  </HStack>
+  </VStack>
   <Spacer />
 </>;
 

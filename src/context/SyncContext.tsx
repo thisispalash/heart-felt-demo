@@ -7,6 +7,8 @@ const SyncContext = createContext<SyncContextType>({});
 
 export default function SyncProvider({ children }: { children: React.ReactNode }) {
 
+  console.log('SyncProvider')
+
   return (
     <SyncContext.Provider value={{}}>
       {children}
