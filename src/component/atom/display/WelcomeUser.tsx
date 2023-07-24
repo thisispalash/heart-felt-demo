@@ -13,13 +13,18 @@ export default function WelcomeUser({ ...props }) {
       color='white'
       opacity={0.7}
       fontSize='4xl'
-      textAlign='left'
+      alignItems='start'
     >
-      <Heading w='full' pl={6}>Welcome</Heading>
+      <Heading 
+        pl={6}
+        fontSize='5xl'
+      >
+        Welcome
+      </Heading>
       <Link 
         pl={12}
-        w='full'
         isExternal 
+        noOfLines={1}
         href={`https://mumbai.polygonscan.com/address/${wallet?.address}`} 
       >
         {display}

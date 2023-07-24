@@ -13,6 +13,7 @@ import ConnectWallet from '@/component/atom/link/ConnectWallet';
 import { RootState } from '@/redux/store';
 import WelcomeUser from '@/component/atom/display/WelcomeUser';
 import SyncNow from '@/component/atom/button/SyncNow';
+import Shuffle from '@/component/atom/button/Shuffle';
 
 const LandingPage = <>
   <BigBrand />
@@ -32,9 +33,9 @@ const UserPage = <>
     <WelcomeUser />
     <Spacer />
   </HStack>
-  <HStack spacing={6} w='full'>
+  <HStack spacing={3} w='full'>
     <SyncNow />
-    {/* <Shuffle /> */}
+    <Shuffle />
     <Spacer />
   </HStack>
   <Spacer />

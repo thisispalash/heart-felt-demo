@@ -32,7 +32,7 @@ export default function Footer({ ...props }: FooterProps) {
       <Spacer />
       <TrialLink />
       <TheoryLink />
-      <Spacer />
+      {/* <Spacer /> */}
     </HStack>
   )
 
@@ -57,7 +57,7 @@ export default function Footer({ ...props }: FooterProps) {
       p={4}
       w='full'
       bottom={0}
-      position='absolute'
+      position='sticky'
     >
       <FooterStack />
     </HStack>

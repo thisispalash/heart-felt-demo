@@ -26,14 +26,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <VStack
                 h='100vh' 
                 w='100vw'
-                pl={24} 
+                px={[6, 12, 24, 48]} 
                 spacing={8}
               >
                 {children}
-                {/* <BeatingHeart /> */}
                 <Footer />
+                <Notification />
               </VStack>
-              <Notification />
+              {/* <BeatingHeart /> */}
             </ChakraProvider>
           </Providers>
         </main>

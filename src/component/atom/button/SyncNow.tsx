@@ -7,7 +7,7 @@ export default function SyncNow({ ...props }) {
   const dispatch = useAppDispatch();
 
   const syncNow = () => {
-    
+    dispatch({ type: 'app/setPage', payload: 'sync' });
   }
 
   return (

@@ -5,7 +5,7 @@ const styles = {
     html: {
       width: '100vw',
       height: '100vh',
-      overflowX: 'hidden',
+      // overflowX: 'hidden',
       margin: 0,
       padding: 0,
     },
