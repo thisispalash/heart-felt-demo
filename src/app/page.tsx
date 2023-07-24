@@ -7,13 +7,19 @@ import { HStack, Spacer, Text, VStack } from '@chakra-ui/react';
 
 /** application imports */
 
-import BigBrand from '@/component/atom/display/BigBrand';
-import EnterSite from '@/component/atom/button/EnterSite';
-import ConnectWallet from '@/component/atom/link/ConnectWallet';
 import { RootState } from '@/redux/store';
+
+import SyncProvider from '@/context/SyncContext';
+import CountProvider from '@/context/CountContext';
+
+import BigBrand from '@/component/atom/display/BigBrand';
 import WelcomeUser from '@/component/atom/display/WelcomeUser';
+
 import SyncNow from '@/component/atom/button/SyncNow';
 import Shuffle from '@/component/atom/button/Shuffle';
+import EnterSite from '@/component/atom/button/EnterSite';
+
+import ConnectWallet from '@/component/atom/link/ConnectWallet';
 
 const LandingPage = <>
   <BigBrand />
@@ -44,8 +50,12 @@ const UserPage = <>
 const SyncPage = <>
   <Spacer />
   <HStack spacing={6} w='full'>
-    {/* <SyncBeat /> */}
-    {/* <CountBeat /> */}
+    <SyncProvider>
+      {/* <SyncBeat /> */}
+    </SyncProvider>
+    <CountProvider>
+      {/* <CountBeat /> */}
+    </CountProvider>
   </HStack>
   <Spacer />
 </>;
