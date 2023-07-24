@@ -1,7 +1,7 @@
 import { Link } from '@chakra-ui/react';
-import { useAppDispatch } from '@/redux/store';
+import { useAppDispatch } from '@/redux/hooks';
   
-export default function TrialLink({ ...props }) {
+export default function TheoryLink({ ...props }) {
 
   const dispatch = useAppDispatch();
 

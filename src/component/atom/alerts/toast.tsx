@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { useToast, UseToastOptions } from '@chakra-ui/react';
+import { RootState } from '@/redux/store';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';  
 
-import { RootState, useAppDispatch, useAppSelector } from '@/redux/store';
+import { useToast, UseToastOptions } from '@chakra-ui/react';
 
 export default function Notification({ ...props }) {
 
