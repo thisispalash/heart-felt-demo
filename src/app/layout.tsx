@@ -1,8 +1,8 @@
 'use client'
 
-import './globals.css'
+// import './globals.css'
 
-import { CSSReset, ChakraProvider } from '@chakra-ui/react';
+import { CSSReset, ChakraProvider, VStack } from '@chakra-ui/react';
 
 import { theme } from '@/theme';
 import { Providers } from '@/redux/Providers';
@@ -23,8 +23,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Providers>
             <ChakraProvider theme={theme}>
               <CSSReset />
-              {children}
-              <Footer />
+              <VStack
+                h='100vh' 
+                w='100vw'
+                pl={12} 
+                spacing={4}
+              >
+                {children}
+                {/* <BeatingHeart /> */}
+                <Footer />
+              </VStack>
               <Notification />
             </ChakraProvider>
           </Providers>

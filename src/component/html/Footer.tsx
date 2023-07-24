@@ -37,24 +37,25 @@ export default function Footer({ ...props }: FooterProps) {
   )
 
   const FooterStack = () => {
+    let jsx = <></>;
+    
     switch (page) {
-      case 'welcome': return <></>;
-      case 'dashboard': // TODO, change wallet to home link
-      default: 
-        return (
-          <>
-            {/* <Wallet /> */}
-            <Spacer />
-            {LinkStack}
-          </>
-        );
+      case 'user':
+        jsx = <>
+          {/* <Wallet /> */}
+          <Spacer />
+          {LinkStack}
+        </>;
+      break;
     }
+
+    return jsx;
   }
 
   return (
     <HStack 
       p={4}
-      w='full' 
+      w='full'
       bottom={0}
       position='absolute'
     >

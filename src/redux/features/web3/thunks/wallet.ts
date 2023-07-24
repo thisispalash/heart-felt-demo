@@ -26,7 +26,7 @@ export const generateWallet =
       const wallet = ethers.Wallet.createRandom(); // creates a new wallet from mnemonic
       
       const addr = await wallet.getAddress();
-      const display = addr.slice(0,6) + '...' + addr.slice(-4);
+      const display = addr.slice(0,6) + '..' + addr.slice(-4);
       const mnemonic = wallet.mnemonic!.phrase;
       const privateKey = wallet.privateKey;
       
