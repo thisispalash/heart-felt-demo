@@ -50,6 +50,8 @@ export default function Footer({ ...props }: FooterProps) {
         </>;
       break;
       case 'feel':
+      case 'sync':
+      case 'count':
         jsx = <>
           {/* <Wallet /> */}
           <Spacer />

@@ -11,6 +11,7 @@ import Footer from '@/component/html/Footer';
 import MetaTags from '@/component/html/Metadata';
 import Notification from '@/component/atom/alerts/toast';
 import Heart from '@/component/heart';
+import CameraProvider from '@/context/CameraContext';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
@@ -23,19 +24,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <main>
           <Providers>
-            <ChakraProvider theme={theme}>
-              <CSSReset />
-              <VStack
-                h='100vh' 
-                w='100vw'
-                px={[6, 12, 24, 48]} 
-                spacing={8}
-              >
-                {children}
-                <Footer />
-                <Notification />
-              </VStack>
-              <Heart />
+              <ChakraProvider theme={theme}>
+                <CameraProvider>
+                  <CSSReset />
+                  <VStack
+                    h='100vh' 
+                    w='100vw'
+                    px={[6, 12, 24, 48]} 
+                    spacing={8}
+                  >
+                    {children}
+                    <Footer />
+                    <Notification />
+                  </VStack>
+                <Heart />
+              </CameraProvider>
             </ChakraProvider>
           </Providers>
         </main>

@@ -23,6 +23,8 @@ export default function Heart({ ...props }: HeartProps) {
           top: 0
         }
       case 'feel':
+      case 'sync':
+      case 'count':
         return {
           display: 'none'
         }

@@ -41,6 +41,18 @@ export default function Notification({ ...props }) {
         config.title = 'Canary feature!';
         config.description = 'This feature is not yet available.';
       break;
+      case 4043116: // ie, 404cam
+        config.status = 'info';
+        config.title = 'No camera found!';
+        config.description = 'Camera access is required for this app to work!';
+        config.colorScheme = 'schemes.red';
+      break;
+      case 4063116: // ie, 406cam
+        config.status = 'error';
+        config.title = 'Camera not accessible';
+        config.description = 'Camera access is required for this app to work!';
+        config.colorScheme = 'schemes.red';
+      break;
 
       /** web3 related codes */
 

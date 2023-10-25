@@ -21,8 +21,9 @@ import EnterSite from '@/component/atom/button/EnterSite';
 
 import ConnectWallet from '@/component/atom/link/ConnectWallet';
 
-import SyncBeat from '@/component/molecule/SyncBeat';
-import CountBeat from '@/component/molecule/CountBeat';
+import SyncButton from '@/component/molecule/SyncButton';
+import CountButton from '@/component/molecule/CountButton';
+import SyncBeat from '@/component/activity/SyncBeat';
 
 const LandingPage = <>
   <BigBrand />
@@ -54,11 +55,11 @@ const FeelPage = <>
   <Spacer />
   <VStack spacing={6} w='full'>
     <SyncProvider>
-      <SyncBeat />
+      <SyncButton />
     </SyncProvider>
-    <Divider w='7vw' />
+    <Divider w='7vw' color='light' />
     <CountProvider>
-      <CountBeat />
+      <CountButton />
     </CountProvider>
   </VStack>
   <Spacer />
@@ -72,6 +73,8 @@ export default function Page() {
     switch(page) {
       case 'user': return UserPage;
       case 'feel': return FeelPage;
+      case 'sync': return SyncBeat;
+      // case 'count': return CountBeat;
       default: return LandingPage;
     }
   }

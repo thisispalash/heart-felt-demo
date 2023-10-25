@@ -2,13 +2,13 @@ import { Button } from '@chakra-ui/react';
 import { useAppDispatch } from '@/redux/hooks';
 
 
-export default function SyncBeat({ ...props }) {
+export default function CountButton({ ...props }) {
 
   const dispatch = useAppDispatch();
 
-  const loadSyncing = () => {
+  const loadCounting = () => {
     dispatch({ type: 'app/setToast', payload: 204 });
-    // dispatch({ type: 'app/setPage', payload: 'sync' });
+    // dispatch({ type: 'app/setPage', payload: 'count' });
   }
 
   console.log('heeee')
@@ -17,10 +17,10 @@ export default function SyncBeat({ ...props }) {
     <Button
       size='lg'
       variant='outline'
-      onClick={loadSyncing}
-      colorScheme='schemes.green'
+      onClick={loadCounting}
+      colorScheme='schemes.teal'
     >
-      Sync Heartbeat
+      Count Heartbeat
     </Button>
   );
 
