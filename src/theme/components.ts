@@ -1,5 +1,7 @@
+import { modalTheme } from './multipart/modal';
 
-
-const components = {}
+const components = {
+  Modal: modalTheme
+}
 
 export default components;

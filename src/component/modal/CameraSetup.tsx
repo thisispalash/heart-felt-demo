@@ -70,7 +70,7 @@ export default function CameraSetup(
   </HStack>;
 
   useEffect(() => { 
-    if(videoStream) {
+    if(videoStream && videoStream.active) {
       goToNext();
     }
   }, [videoStream]);
@@ -116,7 +116,7 @@ export default function CameraSetup(
           }
         </ModalBody>
         <ModalFooter>
-          <Button variant='ghost' colorScheme='schemes.red' onClick={closeModal}>
+          <Button variant='outline' colorScheme='schemes.red' onClick={closeModal}>
             Close
           </Button>
         </ModalFooter>
