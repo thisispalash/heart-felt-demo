@@ -11,18 +11,50 @@ const steps = [
   { title: 'Regularize', description: 'Please wait for waveform to regularlize' }
 ]
 
+const MAX_CANVAS_WIDTH = 480;
+const MAX_CANVAS_HEIGHT = 360;
+
 export default function CameraSetup(
   { isOpen, onClose, caller } :
   { isOpen: boolean, onClose: () => void, caller: string }
 ) {
 
   const { activeStep, setActiveStep, goToNext, goToPrevious } = useSteps({ index:0, count:steps.length });
-  const { startCamera, videoStream } = useCamera();
+  const { startCamera, videoStream, checkRedShade } = useCamera();
   const dispatch = useAppDispatch();
 
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const vidRefCallback = (node: any) => {
     if (node && videoStream) {
       (node as HTMLVideoElement).srcObject = videoStream;
+
+      node.onplay = () => {
+        if(canvasRef.current) {
+          const canvas = canvasRef.current;
+          const ctx = canvasRef.current?.getContext('2d');
+
+          const videoAR = node.videoWidth / node.videoHeight;
+          const canvasAR = MAX_CANVAS_WIDTH / MAX_CANVAS_HEIGHT; // w=480px, h=360px
+
+          if(videoAR > canvasAR) {
+            canvas.width = MAX_CANVAS_WIDTH;
+            canvas.height = MAX_CANVAS_WIDTH / videoAR;
+          } else {
+            canvas.height = MAX_CANVAS_HEIGHT;
+            canvas.width = MAX_CANVAS_HEIGHT * videoAR;
+          }
+
+          const drawVideoToCanvas = () => {
+            ctx?.drawImage(node, 0, 0, canvas.width, canvas.height);
+            requestAnimationFrame(drawVideoToCanvas);
+            // const isCovered = checkRedShade!(canvasRef.current as HTMLCanvasElement);
+            // console.log('reds:', isCovered);
+            // if(isCovered) goToNext();
+          }
+
+          drawVideoToCanvas();
+        }
+      }
     }
   }
 
@@ -77,7 +109,8 @@ export default function CameraSetup(
 
   const PlaceFinger = <HStack w='full'>
     <Spacer />
-    <video ref={vidRefCallback} autoPlay />
+    <video ref={vidRefCallback} autoPlay style={{ display: 'none' }}/>
+    <canvas ref={canvasRef} style={{ borderRadius: '10px' }} />
     <Spacer />
   </HStack>;
 
