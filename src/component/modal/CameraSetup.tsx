@@ -1,62 +1,25 @@
 'use client'
 
-import { useCamera } from '@/context/CameraContext';
+import { useCamera, CONSTS } from '@/context/CameraContext';
 import { useAppDispatch } from '@/redux/hooks';
 import { Box, Button, HStack, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Step, StepDescription, StepIcon, StepIndicator, StepSeparator, StepStatus, StepTitle, Stepper, Text, VStack, useSteps } from '@chakra-ui/react';
 import { createRef, useEffect, useRef } from 'react';
+import PlaceFingerComponent from './components/PlaceFingerComponent';
 
 const steps = [
   { title: 'Camera', description: 'Please allow access to the camera' },
-  { title: 'Finger', description: 'Please place non dominant thumb on camera' },
+  { title: 'Finger', description: 'Please place thumb on camera; ensure enough brightness' },
   { title: 'Regularize', description: 'Please wait for waveform to regularlize' }
 ]
-
-const MAX_CANVAS_WIDTH = 480;
-const MAX_CANVAS_HEIGHT = 360;
 
 export default function CameraSetup(
   { isOpen, onClose, caller } :
   { isOpen: boolean, onClose: () => void, caller: string }
 ) {
 
-  const { activeStep, setActiveStep, goToNext, goToPrevious } = useSteps({ index:0, count:steps.length });
-  const { startCamera, videoStream, checkRedShade } = useCamera();
+  const { activeStep, setActiveStep } = useSteps({ index:0, count:steps.length });
+  const { startCamera, videoStream } = useCamera();
   const dispatch = useAppDispatch();
-
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const vidRefCallback = (node: any) => {
-    if (node && videoStream) {
-      (node as HTMLVideoElement).srcObject = videoStream;
-
-      node.onplay = () => {
-        if(canvasRef.current) {
-          const canvas = canvasRef.current;
-          const ctx = canvasRef.current?.getContext('2d');
-
-          const videoAR = node.videoWidth / node.videoHeight;
-          const canvasAR = MAX_CANVAS_WIDTH / MAX_CANVAS_HEIGHT; // w=480px, h=360px
-
-          if(videoAR > canvasAR) {
-            canvas.width = MAX_CANVAS_WIDTH;
-            canvas.height = MAX_CANVAS_WIDTH / videoAR;
-          } else {
-            canvas.height = MAX_CANVAS_HEIGHT;
-            canvas.width = MAX_CANVAS_HEIGHT * videoAR;
-          }
-
-          const drawVideoToCanvas = () => {
-            ctx?.drawImage(node, 0, 0, canvas.width, canvas.height);
-            requestAnimationFrame(drawVideoToCanvas);
-            // const isCovered = checkRedShade!(canvasRef.current as HTMLCanvasElement);
-            // console.log('reds:', isCovered);
-            // if(isCovered) goToNext();
-          }
-
-          drawVideoToCanvas();
-        }
-      }
-    }
-  }
 
   const selectColorScheme = () => {
     switch(caller) {
@@ -89,7 +52,7 @@ export default function CameraSetup(
     </Text>
   </VStack>;
 
-  const ConnectCamera = <HStack w='full'>
+  const ConnectCameraButton = <HStack w='full'>
     <Spacer />
     <Button
       variant='outline'
@@ -103,16 +66,9 @@ export default function CameraSetup(
 
   useEffect(() => { 
     if(videoStream && videoStream.active) {
-      goToNext();
+      setActiveStep(1); // ie, Step 2: PlaceFinger
     }
   }, [videoStream]);
-
-  const PlaceFinger = <HStack w='full'>
-    <Spacer />
-    <video ref={vidRefCallback} autoPlay style={{ display: 'none' }}/>
-    <canvas ref={canvasRef} style={{ borderRadius: '10px' }} />
-    <Spacer />
-  </HStack>;
 
   const RegularWaveform = <></>;
 
@@ -142,8 +98,8 @@ export default function CameraSetup(
         <ModalBody>
           {
             {
-              0: ConnectCamera,
-              1: PlaceFinger,
+              0: ConnectCameraButton,
+              1: <PlaceFingerComponent setActiveStep={setActiveStep} />,
               2: RegularWaveform
             }[activeStep]
           }
